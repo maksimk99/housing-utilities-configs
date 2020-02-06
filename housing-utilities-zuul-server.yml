@@ -1,0 +1,32 @@
+server:
+  port: 8089
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+zuul:
+  routes:
+    user-service:
+      path: /user-service-api/**
+      serviceId: housing-utilities-user-service
+    maintenance-service:
+      path: /maintenance-service-api/**
+      serviceId: housing-utilities-maintenance
+    overhaul-service:
+      path: /overhaul-service-api/**
+      serviceId: housing-utilities-overhaul-service
+    electricity-service:
+      path: /electricity-service-api/**
+      serviceId: housing-utilities-electricity-service
+    water-service:
+      path: /water-service-api/**
+      serviceId: housing-utilities-water-service
+    water-disposal:
+      path: /water-disposal-api/**
+      serviceId: housing-utilities-water-disposal
+    elevator-maintenance:
+      path: /elevator-maintenance-api/**
+      serviceId: housing-utilities-elevator-maintenance
+
