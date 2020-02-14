@@ -1,0 +1,28 @@
+server:
+  port: 8090
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/housing_utilities
+    username: root
+    password: 16111999m
+  jpa:
+    hibernate:
+      ddl-auto: update
+refresh:
+  token:
+    validity:
+      seconds: 2_592_000
+access:
+  token:
+    validity:
+      seconds: 18_000
+login:
+  external:
+    url: http://localhost:3000/home

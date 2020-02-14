@@ -6,3 +6,13 @@ eureka:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
+security:
+  oauth2:
+    client:
+      clientId: exampleClient
+      clientSecret: exampleSecret
+      accessTokenUri: http://localhost:8090/oauth/token
+      grant-type: client_credentials
+      scope: server
+    resource:
+      token-info-uri: http://localhost:8090/oauth/check_token
