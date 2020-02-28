@@ -1,0 +1,28 @@
+server:
+  port: 8091
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/housing_utilities
+    username: housing-utilities
+    password: K16111999m
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        electricity-service:
+          destination: housing-utilities-electricity-service
+          content-type: application/json
+        water-service:
+          destination: housing-utilities-water-service
+          content-type: application/json
+        water-disposal:
+          destination: housing-utilities-water-disposal
+          content-type: application/json
+users:
+  id:
+    get:
+      sql: SELECT user_id FROM users
+
