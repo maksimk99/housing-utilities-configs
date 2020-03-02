@@ -19,7 +19,7 @@ security:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/housing-utilities-water-disposal
+    url: jdbc:mysql://localhost:3306/housing_utilities_water_disposal
     username: root
     password: 16111999m
   jpa:
