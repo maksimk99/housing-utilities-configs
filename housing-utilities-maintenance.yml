@@ -16,3 +16,28 @@ security:
       scope: server
     resource:
       token-info-uri: http://localhost:8090/oauth/check_token
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/housing_utilities_maintenance_service
+    username: root
+    password: 16111999m
+  jpa:
+    hibernate:
+      ddl-auto: update
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        input:
+          destination: housing-utilities-maintenance-service
+          content-type: application/json
+count:
+  of:
+    months: 12
+price:
+  per:
+    square:
+      meter: 0.1187

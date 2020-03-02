@@ -21,8 +21,16 @@ spring:
         water-disposal:
           destination: housing-utilities-water-disposal
           content-type: application/json
+        maintenance-service:
+          destination: housing-utilities-maintenance-service
+          content-type: application/json
+        elevator-maintenance:
+          destination: housing-utilities-elevator-maintenance
+          content-type: application/json
+        overhaul-service:
+          destination: housing-utilities-overhaul-service
+          content-type: application/json
 users:
   id:
     get:
       sql: SELECT user_id FROM users
-
