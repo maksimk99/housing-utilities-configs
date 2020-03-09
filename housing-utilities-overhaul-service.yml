@@ -3,7 +3,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:${EUREKA_SERVER_URL}/eureka}
   instance:
     preferIpAddress: true
 security:
@@ -11,15 +11,15 @@ security:
     client:
       clientId: exampleClient
       clientSecret: exampleSecret
-      accessTokenUri: http://localhost:8090/oauth/token
+      accessTokenUri: ${AUTH_SERVER_URL}/oauth/token
       grant-type: client_credentials
       scope: server
     resource:
-      token-info-uri: http://localhost:8090/oauth/check_token
+      token-info-uri: ${AUTH_SERVER_URL}/oauth/check_token
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/housing_utilities_overhaul_service
+    url: jdbc:mysql://${DB_URL}/housing_utilities_overhaul_service
     username: root
     password: 16111999m
   jpa:
@@ -29,7 +29,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: localhost:9092
+          brokers: ${KAFKA_URL}
       bindings:
         input:
           destination: housing-utilities-overhaul-service
