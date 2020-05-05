@@ -1,11 +1,12 @@
 server:
   port: 8091
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:${EUREKA_SERVER_URL}/eureka}
+  instance:
+    preferIpAddress: true
 spring:
-  datasource:
-    url: jdbc:mysql://${DB_URL}/housing_utilities
-    username: root
-    password: 16111999m
-    driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     stream:
       kafka:
@@ -30,7 +31,4 @@ spring:
         overhaul-service:
           destination: housing-utilities-overhaul-service
           content-type: application/json
-users:
-  id:
-    get:
-      sql: SELECT user_id FROM users
+
